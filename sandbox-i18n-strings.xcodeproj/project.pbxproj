@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A75B25491C1EFCFC0055848C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A75B25481C1EFCFC0055848C /* main.m */; };
-		A75B25511C1F089D0055848C /* StringsFileStats.m in Sources */ = {isa = PBXBuildFile; fileRef = A75B25501C1F089D0055848C /* StringsFileStats.m */; };
+		A75B25511C1F089D0055848C /* StringsFile.m in Sources */ = {isa = PBXBuildFile; fileRef = A75B25501C1F089D0055848C /* StringsFile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,10 +24,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A75B25451C1EFCFC0055848C /* sandbox-get-i18n-stats */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "sandbox-get-i18n-stats"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A75B25451C1EFCFC0055848C /* sandbox-i18n-strings */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "sandbox-i18n-strings"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A75B25481C1EFCFC0055848C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A75B254F1C1F089D0055848C /* StringsFileStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringsFileStats.h; sourceTree = "<group>"; };
-		A75B25501C1F089D0055848C /* StringsFileStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringsFileStats.m; sourceTree = "<group>"; };
+		A75B254F1C1F089D0055848C /* StringsFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringsFile.h; sourceTree = "<group>"; };
+		A75B25501C1F089D0055848C /* StringsFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringsFile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +44,7 @@
 		A75B253C1C1EFCFC0055848C = {
 			isa = PBXGroup;
 			children = (
-				A75B25471C1EFCFC0055848C /* sandbox-get-i18n-stats */,
+				A75B25471C1EFCFC0055848C /* sandbox-i18n-strings */,
 				A75B25461C1EFCFC0055848C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,27 +52,27 @@
 		A75B25461C1EFCFC0055848C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A75B25451C1EFCFC0055848C /* sandbox-get-i18n-stats */,
+				A75B25451C1EFCFC0055848C /* sandbox-i18n-strings */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A75B25471C1EFCFC0055848C /* sandbox-get-i18n-stats */ = {
+		A75B25471C1EFCFC0055848C /* sandbox-i18n-strings */ = {
 			isa = PBXGroup;
 			children = (
 				A75B25481C1EFCFC0055848C /* main.m */,
-				A75B254F1C1F089D0055848C /* StringsFileStats.h */,
-				A75B25501C1F089D0055848C /* StringsFileStats.m */,
+				A75B254F1C1F089D0055848C /* StringsFile.h */,
+				A75B25501C1F089D0055848C /* StringsFile.m */,
 			);
-			path = "sandbox-get-i18n-stats";
+			path = "sandbox-i18n-strings";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A75B25441C1EFCFC0055848C /* sandbox-get-i18n-stats */ = {
+		A75B25441C1EFCFC0055848C /* sandbox-i18n-strings */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A75B254C1C1EFCFC0055848C /* Build configuration list for PBXNativeTarget "sandbox-get-i18n-stats" */;
+			buildConfigurationList = A75B254C1C1EFCFC0055848C /* Build configuration list for PBXNativeTarget "sandbox-i18n-strings" */;
 			buildPhases = (
 				A75B25411C1EFCFC0055848C /* Sources */,
 				A75B25421C1EFCFC0055848C /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = "sandbox-get-i18n-stats";
+			name = "sandbox-i18n-strings";
 			productName = "sandbox-get-i18n-stats";
-			productReference = A75B25451C1EFCFC0055848C /* sandbox-get-i18n-stats */;
+			productReference = A75B25451C1EFCFC0055848C /* sandbox-i18n-strings */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -101,7 +101,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A75B25401C1EFCFC0055848C /* Build configuration list for PBXProject "sandbox-get-i18n-stats" */;
+			buildConfigurationList = A75B25401C1EFCFC0055848C /* Build configuration list for PBXProject "sandbox-i18n-strings" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -113,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A75B25441C1EFCFC0055848C /* sandbox-get-i18n-stats */,
+				A75B25441C1EFCFC0055848C /* sandbox-i18n-strings */,
 			);
 		};
 /* End PBXProject section */
@@ -123,7 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A75B25511C1F089D0055848C /* StringsFileStats.m in Sources */,
+				A75B25511C1F089D0055848C /* StringsFile.m in Sources */,
 				A75B25491C1EFCFC0055848C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,21 +213,21 @@
 		A75B254D1C1EFCFC0055848C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "sandbox-i18n-strings";
 			};
 			name = Debug;
 		};
 		A75B254E1C1EFCFC0055848C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "sandbox-i18n-strings";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A75B25401C1EFCFC0055848C /* Build configuration list for PBXProject "sandbox-get-i18n-stats" */ = {
+		A75B25401C1EFCFC0055848C /* Build configuration list for PBXProject "sandbox-i18n-strings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A75B254A1C1EFCFC0055848C /* Debug */,
@@ -236,13 +236,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A75B254C1C1EFCFC0055848C /* Build configuration list for PBXNativeTarget "sandbox-get-i18n-stats" */ = {
+		A75B254C1C1EFCFC0055848C /* Build configuration list for PBXNativeTarget "sandbox-i18n-strings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A75B254D1C1EFCFC0055848C /* Debug */,
 				A75B254E1C1EFCFC0055848C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

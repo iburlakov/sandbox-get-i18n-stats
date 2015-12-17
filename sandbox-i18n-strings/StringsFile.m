@@ -1,14 +1,14 @@
 //
-//  StringsFileStats.m
-//  sandbox-get-i18n-stats
+//  StringsFile.m
+//  sandbox-i18n-strings
 //
 //  Created by Ivan Burlakov on 14/12/15.
 //  Copyright © 2015 Ivan Burlakov. All rights reserved.
 //
 
-#import "StringsFileStats.h"
+#import "StringsFile.h"
 
-@implementation StringsFileStats
+@implementation StringsFile
 
 - (id)initWithFile:(NSString *)path {
     self = [super init];
