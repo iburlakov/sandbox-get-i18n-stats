@@ -26,6 +26,8 @@ int main(int argc, const char * argv[]) {
         [stats calc];
         
         NSLog(@"Stats for %@\n\t\tStrings: %i\n\t\tWords: %i", [path lastPathComponent], stats.strings, stats.words);
+        
+        [stats generatePseudo];
 
         // TODO: go...
     }

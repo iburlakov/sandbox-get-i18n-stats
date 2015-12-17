@@ -20,6 +20,8 @@
 
 - (void)calc;
 
+- (void)generatePseudo;
+
 - (int)strings;
 - (int)words;
 

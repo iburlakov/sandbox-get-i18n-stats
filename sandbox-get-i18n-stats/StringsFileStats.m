@@ -48,6 +48,36 @@
     }
 }
 
+- (void)generatePseudo {
+    NSError *err;
+    NSString *content = [NSString stringWithContentsOfFile:filepath
+                                                  encoding:NSUTF8StringEncoding
+                                                     error:&err];
+    
+    //NSString *string = @"123 &1245; Ross Test 12";
+    //NSError *error = nil;
+    //NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"&[^;]*;" options:NSRegularExpressionCaseInsensitive error:&error];
+    NSString *modifiedString = [regex stringByReplacingMatchesInString:content
+                                                               options:0
+                                                                 range:NSMakeRange(0, content.length)
+                                                          withTemplate:@"$1 = \"$$$2$$\""];
+    
+    [self save:modifiedString];
+    
+    //NSLog(@"%@", modifiedString);
+}
+
+-(void)save:(NSString *)string{
+    
+    NSString *fileName = [NSString stringWithFormat:@"%@.pseudo", filepath];
+
+    [string writeToFile:fileName
+              atomically:NO
+                encoding:NSUTF8StringEncoding
+                   error:nil];
+}
+
+
 - (int)strings {
     return stringsCount;
 }
