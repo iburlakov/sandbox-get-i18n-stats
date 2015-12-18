@@ -28,16 +28,14 @@
 }
 
 - (void)calc {
-    NSError *err;
-    NSString *content = [NSString stringWithContentsOfFile:filepath
-                                                  encoding:NSUTF8StringEncoding
-                                                     error:&err];
+    NSString *content = [self readContentOf:filepath];
+    
     // get strings that should be localized
     NSArray *matches = [regex matchesInString:content
                                       options:0
                                         range:NSMakeRange(0,content.length)];
     
-    // iterage over each string
+    // iterate over each string
     for (NSTextCheckingResult *match in  matches) {
         if (match) {
             NSString *str = [content substringWithRange:[match rangeAtIndex:1]];
@@ -49,32 +47,38 @@
 }
 
 - (void)generatePseudo {
-    NSError *err;
-    NSString *content = [NSString stringWithContentsOfFile:filepath
-                                                  encoding:NSUTF8StringEncoding
-                                                     error:&err];
+    NSString *content = [self readContentOf:filepath];
     
-    //NSString *string = @"123 &1245; Ross Test 12";
-    //NSError *error = nil;
-    //NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"&[^;]*;" options:NSRegularExpressionCaseInsensitive error:&error];
     NSString *modifiedString = [regex stringByReplacingMatchesInString:content
                                                                options:0
                                                                  range:NSMakeRange(0, content.length)
                                                           withTemplate:@"$1 = \"$$$2$$\""];
     
     [self save:modifiedString];
-    
-    //NSLog(@"%@", modifiedString);
 }
 
--(void)save:(NSString *)string{
+- (NSString *)readContentOf:(NSString *)path {
+    NSError *err;
+    NSString *content = [NSString stringWithContentsOfFile:path
+                                                  encoding:NSUTF8StringEncoding
+                                                     error:&err];
     
+    if (err) {
+        [NSException raise:@"Could not open file" format:@"Could not open file %@: %@", filepath, err];
+    }
+    
+    return content;
+}
+
+- (void)save:(NSString *)string{
     NSString *fileName = [NSString stringWithFormat:@"%@.pseudo", filepath];
 
     [string writeToFile:fileName
               atomically:NO
                 encoding:NSUTF8StringEncoding
                    error:nil];
+    
+    NSLog(@"Saved %@", fileName);
 }
 
 
