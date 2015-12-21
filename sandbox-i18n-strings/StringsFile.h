@@ -20,7 +20,7 @@
 
 - (void)calc;
 
-- (void)generatePseudo;
+- (void)generatePseudo:(BOOL)rewrite;
 
 - (int)strings;
 - (int)words;

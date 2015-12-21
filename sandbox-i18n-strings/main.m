@@ -16,16 +16,26 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         if (argc < 3) {
-            NSLog(@"Usage: sandbox-i18n-strings <command> <strings-file-path>"
+            NSLog(@"Usage: sandbox-i18n-strings <command> <strings-file-path> [--force]"
                   "\nCommands:"
                   "\n\tstats   Shows basic stats for given strings file: number of string and number of words"
-                  "\n\tpseudo  Created a pseudolocalization strings files based on gived strigns file with following format: $$<original-string>$$");
+                  "\n\tpseudo  Created a pseudolocalization strings files based on gived strigns file with following format: $$<original-string>$$"
+                  "\nOptions:"
+                  "\n\t--force  When pseudo is used, this option forces to rewrite origin file");
             
             return 0;
         }
         
         NSString *command = [NSString stringWithUTF8String:argv[1]];
         NSString *path = [NSString stringWithUTF8String:argv[2]];
+        
+        NSMutableArray *options = nil;
+        if (argc > 3) {
+            options = [NSMutableArray arrayWithCapacity:argc - 3];
+            for (int i = 0; i < argc - 3; i++) {
+                [options addObject:[NSString stringWithUTF8String:argv[i + 3]]];
+            }
+        }
         
         StringsFile *stringsFile = [[StringsFile alloc] initWithFile:path];
         if (NSOrderedSame == [command compare:statsCommand]) {
@@ -36,7 +46,13 @@ int main(int argc, const char * argv[]) {
                   stringsFile.strings,
                   stringsFile.words);
         } else if (NSOrderedSame == [command compare:pseudoCommand]) {
-            [stringsFile generatePseudo];
+            
+            BOOL rewrite = NO;
+            if (nil != options) {
+                rewrite = [options containsObject:@"--force"];
+            }
+
+            [stringsFile generatePseudo:rewrite];
         } else {
             NSLog(@"Unknown command");
         }

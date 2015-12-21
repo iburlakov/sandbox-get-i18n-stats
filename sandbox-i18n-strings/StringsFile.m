@@ -46,15 +46,18 @@
     }
 }
 
-- (void)generatePseudo {
+- (void)generatePseudo:(BOOL)rewrite {
     NSString *content = [self readContentOf:filepath];
     
     NSString *modifiedString = [regex stringByReplacingMatchesInString:content
                                                                options:0
                                                                  range:NSMakeRange(0, content.length)
                                                           withTemplate:@"$1 = \"$$$2$$\""];
-    
-    [self save:modifiedString];
+    if (rewrite) {
+        [self rewrite:modifiedString];
+    } else {
+        [self save:modifiedString];
+    }
 }
 
 - (NSString *)readContentOf:(NSString *)path {
@@ -81,6 +84,14 @@
     NSLog(@"Saved %@", fileName);
 }
 
+- (void)rewrite:(NSString *)string{
+    [string writeToFile:filepath
+             atomically:NO
+               encoding:NSUTF8StringEncoding
+                  error:nil];
+    
+    NSLog(@"Saved %@", filepath);
+}
 
 - (int)strings {
     return stringsCount;
